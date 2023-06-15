@@ -19,7 +19,6 @@
         android:orientation="vertical">
 
         <TextView
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
@@ -37,6 +36,7 @@
             android:layout_height="49dp"/>
         <EditText
             android:id="@+id/user_pw"
+            android:inputType="textPassword"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:hint="Password"
