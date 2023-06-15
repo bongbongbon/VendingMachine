@@ -17,9 +17,13 @@
             android:exported="false" />
         <activity
             android:name=".MembershipDTO"
+            android:name=".FindCustomerActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
