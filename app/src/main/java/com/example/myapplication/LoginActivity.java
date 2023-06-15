@@ -48,22 +48,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-       /* btn_join_member.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, MembershipActivity.class);
-                startActivity(intent);
-            }
-        });*/
 
 
-        btn_find_id_pw.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, FindCustomerActivity.class);
-                startActivity(intent);
-            }
-        });
 
     }
 
