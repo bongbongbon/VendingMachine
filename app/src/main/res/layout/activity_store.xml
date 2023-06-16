@@ -117,13 +117,22 @@
                 android:layout_height="match_parent">
 
                 <TextView
+                    android:fontFamily="@font/gamefont"
+                    android:layout_marginTop="20dp"
+                    android:text="상품명 :"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"/>
+
+                <TextView
+                    android:layout_marginLeft="85dp"
                     android:layout_marginTop="20dp"
                     android:id="@+id/tv_pd_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/gamefont"
-                    android:text="상품명 : 바나나"
                     android:textSize="20dp" />
+
 
 
 
@@ -136,6 +145,17 @@
                     android:fontFamily="@font/gamefont"
                     android:text="가격 : "
                     android:textSize="20dp" />
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@+id/tv_pd_name"
+                    android:layout_marginLeft="85dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gamefont"
+                    android:textSize="20dp" />
+
+
 
 
                 <TextView
@@ -155,7 +175,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/gamefont"
-                    android:text="바나나는 길어 길면 기차 기차는 빨라 빠르면 비행기 "
                     android:textSize="20dp" />
 "
 
@@ -191,14 +210,14 @@
                     android:layout_height="100dp"/>
 
                     <TextView
-
+                        android:id="@+id/tv_pd_banana"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/imgv_banana"
                         android:layout_centerInParent="true"
                         android:layout_marginTop="10dp"
-                        android:text="바나나"
                         android:fontFamily="@font/gamefont"
+                        android:text="바나나"
                         android:textSize="20dp" />
 
                 </RelativeLayout>

@@ -15,11 +15,13 @@ public class StoreActivity extends AppCompatActivity {
     private ImageView imgv_banana, imgv_plum, imgv_abocado, imgv_tomato,imgv_bagel, imgv_apple, imgv_main;
     private Button btn_charge;
 
-    private TextView tv_usermoney ;
+    private TextView tv_usermoney, tv_pd_name, tv_pd_banana;
 
     private EditText edt_chargemoney;
 
     int usermoney, money;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +35,9 @@ public class StoreActivity extends AppCompatActivity {
         imgv_plum = findViewById(R.id.imgv_plum);
         imgv_banana = findViewById(R.id.imgv_banana);
         imgv_main = findViewById(R.id.imgv_main);
+        tv_pd_banana =findViewById(R.id.tv_pd_banana);
 
+        tv_pd_name = findViewById(R.id.tv_pd_name);
 
         btn_charge = findViewById(R.id.btn_charge);
 
@@ -53,6 +57,7 @@ public class StoreActivity extends AppCompatActivity {
         imgv_banana.setOnClickListener(v -> {
            imgv_main.setVisibility(View.VISIBLE);
             imgv_main.setImageResource(R.drawable.banana);
+            tv_pd_name.setText(tv_pd_banana.getText().toString());
         });
 
         imgv_plum.setOnClickListener(v -> {
