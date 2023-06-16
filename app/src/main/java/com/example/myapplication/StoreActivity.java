@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class StoreActivity extends AppCompatActivity {
     private ImageView imgv_banana, imgv_plum, imgv_abocado, imgv_tomato,imgv_bagel, imgv_apple, imgv_main;
     private Button btn_charge;
@@ -20,10 +22,15 @@ public class StoreActivity extends AppCompatActivity {
     private EditText edt_chargemoney;
 
     int usermoney, money;
+
+    ArrayList<MenuDTO> menu = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store);
+        for (int i = 0; i < MenuVal.names.length; i++) {
+            menu.add(new MenuDTO(MenuVal.names[i], MenuVal.explains[i], MenuVal.types[i],MenuVal.amounts[i],MenuVal.prices[i],MenuVal.src[i]));
+        }
 
 
         imgv_apple = findViewById(R.id.imgv_apple_green);
