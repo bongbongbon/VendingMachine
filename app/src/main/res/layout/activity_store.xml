@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            >
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gamefont"
+                android:gravity="center"
+                android:text="상점"
+                android:textSize="60dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+
+            <Button
+                android:padding="1dp"
+                android:fontFamily="@font/gamefont"
+                android:textSize="20dp"
+                android:background="#00ff0000"
+                android:textColor="#49454F"
+                android:layout_weight="1"
+                android:text="내정보"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:padding="1dp"
+                android:fontFamily="@font/gamefont"
+                android:textSize="20dp"
+                android:background="#00ff0000"
+                android:textColor="#49454F"
+                android:text="인벤토리"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btn_back"
+                android:padding="1dp"
+                android:fontFamily="@font/gamefont"
+                android:textSize="20dp"
+                android:background="#00ff0000"
+                android:textColor="#49454F"
+                android:layout_weight="1"
+                android:text="뒤로가기"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        >
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_centerInParent="true"
+                    android:id="@+id/imgv_main"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"/>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/tv_pd_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gamefont"
+                    android:text="상품명 : 바나나"
+                    android:textSize="20dp" />
+
+
+
+                <TextView
+                    android:id="@+id/tv_pd_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_pd_name"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/gamefont"
+                    android:text="가격 : "
+                    android:textSize="20dp" />
+
+
+                <TextView
+                    android:id="@+id/tv_pd_info"
+                    android:layout_below="@+id/tv_pd_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/gamefont"
+                    android:text="상품 정보 "
+                    android:textSize="20dp" />
+                <TextView
+                    android:lineSpacingExtra="5dp"
+                    android:id="@+id/tv_pd_info_context"
+                    android:layout_below="@+id/tv_pd_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/gamefont"
+                    android:text="바나나는 길어 길면 기차 기차는 빨라 빠르면 비행기 "
+                    android:textSize="20dp" />
+"
+
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/imgv_banana"
+                    android:src="@drawable/banana"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"/>
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imgv_banana"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="10dp"
+                        android:text="바나나"
+                        android:fontFamily="@font/gamefont"
+                        android:textSize="20dp" />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/imgv_plum"
+                        android:src="@drawable/plum"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"/>
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imgv_plum"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="10dp"
+                        android:text="자두"
+                        android:fontFamily="@font/gamefont"
+                        android:textSize="20dp" />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/imgv_avocado_half"
+                        android:src="@drawable/avocado_half"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"/>
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imgv_avocado_half"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="10dp"
+                        android:text="아보카도"
+                        android:fontFamily="@font/gamefont"
+                        android:textSize="20dp" />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/imgv_tomato"
+                        android:src="@drawable/tomato"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"/>
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imgv_tomato"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="10dp"
+                        android:text="토마토"
+                        android:fontFamily="@font/gamefont"
+                        android:textSize="20dp" />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/imgv_bagel"
+                        android:src="@drawable/bagel"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"/>
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imgv_bagel"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="10dp"
+                        android:text="베이글"
+                        android:fontFamily="@font/gamefont"
+                        android:textSize="20dp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/imgv_apple_green"
+                        android:src="@drawable/apple_green"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"/>
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imgv_apple_green"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/gamefont"
+                        android:text="사과"
+                        android:textSize="20dp" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+
+
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/gamefont"
+                android:textSize="25dp"
+                android:text="보유 잔액 : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/tv_userMoney"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/gamefont"
+                android:textSize="35dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/gamefont"
+                    android:textSize="20dp"
+                    android:text="잔액 충전 : "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <EditText
+                    android:id="@+id/edt_chargeMoney"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <Button
+                    android:id="@+id/btn_charge"
+                    android:layout_gravity="center"
+                    android:text="충전"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
