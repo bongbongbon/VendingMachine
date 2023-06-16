@@ -9,9 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class LoginActivity extends AppCompatActivity {
 
     EditText user_id, user_pw;
@@ -39,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (user_id.getText().toString().equals("admin") && user_pw.getText().toString().equals("admin1234")) {
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.putExtra("idkey", user_id.getText().toString());
-                    MenuList menuList= new MenuList();
+                    MenuVal menuList= new MenuVal();
                     menuList.baseList();
                     startActivity(intent);
                 } else {
