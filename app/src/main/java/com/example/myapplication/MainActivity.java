@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
         btn_info = findViewById(R.id.btn_info);
 
         btn_store.setOnClickListener(v -> {
-            Intent intet = new Intent(this,StoreActivity.class  );
-            startActivity(intet);
+            Intent intent = new Intent(this,StoreActivity.class  );
+            startActivity(intent);
         });
 
         btn_info.setOnClickListener(v -> {

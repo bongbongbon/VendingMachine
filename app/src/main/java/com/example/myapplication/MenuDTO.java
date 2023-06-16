@@ -1,13 +1,11 @@
 package com.example.myapplication;
 
-import android.widget.Toast;
-
 
 public class MenuDTO {
-    private String goods_name,goods_explain,goods_type,goods_src;
-    private int goods_price,goods_amount;
+    private String goods_name,goods_explain,goods_type;
+    private int goods_price,goods_amount,goods_src;
 
-    public MenuDTO(String goods_name, String goods_explain, String goods_type, int goods_price, int goods_amount,String goods_src) {
+    public MenuDTO(String goods_name, String goods_explain, String goods_type, int goods_price, int goods_amount, int goods_src) {
         this.goods_name = goods_name;
         this.goods_explain = goods_explain;
         this.goods_type = goods_type;
@@ -40,14 +38,6 @@ public class MenuDTO {
         this.goods_type = goods_type;
     }
 
-    public String getGoods_src() {
-        return goods_src;
-    }
-
-    public void setGoods_src(String goods_src) {
-        this.goods_src = goods_src;
-    }
-
     public int getGoods_price() {
         return goods_price;
     }
@@ -62,5 +52,13 @@ public class MenuDTO {
 
     public void setGoods_amount(int goods_amount) {
         this.goods_amount = goods_amount;
+    }
+
+    public int getGoods_src() {
+        return goods_src;
+    }
+
+    public void setGoods_src(int goods_src) {
+        this.goods_src = goods_src;
     }
 }

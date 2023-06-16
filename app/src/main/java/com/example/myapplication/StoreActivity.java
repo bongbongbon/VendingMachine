@@ -1,28 +1,34 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
+import android.content.Context;
 import android.opengl.Visibility;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
 public class StoreActivity extends AppCompatActivity {
-    private ImageView imgv_banana, imgv_plum, imgv_abocado, imgv_tomato,imgv_bagel, imgv_apple, imgv_main;
-    private Button btn_charge, btn_info1;
-
-    private TextView tv_usermoney ;
+    private Button btn_charge,btn_buy;
+    private ImageView imgv_main;
+    private TextView tv_usermoney,tv_name ,tv_price,tv_explain,tv_type ;
 
     private EditText edt_chargemoney;
 
-    int usermoney, money;
+    int usermoney=0, money;
 
     ArrayList<MenuDTO> menu = new ArrayList<>();
     @Override
@@ -31,63 +37,85 @@ public class StoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_store);
         for (int i = 0; i < MenuVal.names.length; i++) {
             menu.add(new MenuDTO(MenuVal.names[i], MenuVal.explains[i], MenuVal.types[i],MenuVal.amounts[i],MenuVal.prices[i],MenuVal.src[i]));
-        }
-
-
-        imgv_apple = findViewById(R.id.imgv_apple_green);
-        imgv_bagel = findViewById(R.id.imgv_bagel);
-        imgv_tomato = findViewById(R.id.imgv_tomato);
-        imgv_abocado = findViewById(R.id.imgv_avocado_half);
-        imgv_plum = findViewById(R.id.imgv_plum);
-        imgv_banana = findViewById(R.id.imgv_banana);
-        imgv_main = findViewById(R.id.imgv_main);
+        };
 
 
         btn_charge = findViewById(R.id.btn_charge);
-        btn_info1 = findViewById(R.id.btn_info1);
-
-
-
+        btn_buy= findViewById(R.id.btn_buy);
         edt_chargemoney =findViewById(R.id.edt_chargeMoney);
         tv_usermoney = findViewById(R.id.tv_userMoney);
+        imgv_main=findViewById(R.id.imgv_main);
+        tv_name=findViewById(R.id.tv_name);
+        tv_price=findViewById(R.id.tv_price);
+        tv_explain=findViewById(R.id.tv_explain);
+        tv_type=findViewById(R.id.tv_type);
+
+        btn_buy.setVisibility(View.GONE);
+        tv_usermoney.setText(usermoney+"원");
         btn_charge.setOnClickListener(v -> {
-            money = Integer.parseInt(edt_chargemoney.getText().toString());
-            usermoney += money;
-            tv_usermoney.setText(usermoney+"원");
+            try {
+                money = Integer.parseInt(edt_chargemoney.getText().toString());
+                usermoney += money;
 
+            }catch (NumberFormatException e){
+
+            }finally {
+                tv_usermoney.setText(usermoney+"원");
+                edt_chargemoney.getText().clear();
+            }
         });
+        Context context = this;
 
+        for (int i = 0; i < menu.size(); i++) {
+            LinearLayout llt_img = findViewById(R.id.llt_img);
+            ImageView imageView = new ImageView(this);
+            final  int idx = i;
+            imageView.setOnClickListener(v->{
+                //Toast.makeText(context, menu.get(idx).getGoods_name(), Toast.LENGTH_SHORT).show();
+                imgv_main.setImageResource((menu.get(idx).getGoods_src()));
+                tv_name.setText((menu.get(idx).getGoods_name()));
+                if(menu.get(idx).getGoods_name().length()>5)
+                    tv_name.setTextSize(17);
+                else
+                    tv_name.setTextSize(20);
+                tv_type.setText(menu.get(idx).getGoods_type());
+                tv_price.setText(String.valueOf(menu.get(idx).getGoods_price()));
+                tv_explain.setText(((menu.get(idx).getGoods_explain())));
 
-        imgv_banana.setOnClickListener(v -> {
-           imgv_main.setVisibility(View.VISIBLE);
-            imgv_main.setImageResource(R.drawable.banana);
-        });
+                btn_buy.setVisibility(View.VISIBLE);
+                btn_buy.setOnClickListener(v1 -> {
+                    if (usermoney >=menu.get(idx).getGoods_price()) {
+                        //usermoney-=menu.get(idx).getGoods_price();
+                        tv_usermoney.setText(usermoney+"원");
+                    }else {
+                        Toast.makeText(this, "현재 잔액이 부족합니다. 충전 후 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            });
+            imageView.setImageResource(menu.get(i).getGoods_src());
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(280, 280);
+            imageView.setLayoutParams(layoutParams);
+            llt_img.addView(imageView);
+        }
 
-        imgv_plum.setOnClickListener(v -> {
-            imgv_main.setVisibility(View.VISIBLE);
-            imgv_main.setImageResource(R.drawable.plum);
-        });
+        for (int i = 0; i < menu.size(); i++) {
+            LinearLayout linearLayout = findViewById(R.id.llt_text);
+            TextView textView = new TextView(this);
+            textView.setLayoutParams(new LinearLayout.LayoutParams(
+            0,
+            LinearLayout.LayoutParams.WRAP_CONTENT,1));
+            textView.setGravity(Gravity.CENTER);
+            textView.setText(menu.get(i).getGoods_name());
+            if(menu.get(i).getGoods_name().length()>5)
+                textView.setTextSize(18);
+            else
+               textView.setTextSize(20);
+            textView.setTypeface(ResourcesCompat.getFont(this, R.font.gamefont));
 
-        imgv_abocado.setOnClickListener(v -> {
-            imgv_main.setVisibility(View.VISIBLE);
-            imgv_main.setImageResource(R.drawable.avocado_half);
-        });
+            // LinearLayout에 TextView 추가
+            linearLayout.addView(textView);
 
-        imgv_tomato.setOnClickListener(v -> {
-            imgv_main.setVisibility(View.VISIBLE);
-            imgv_main.setImageResource(R.drawable.tomato);
-        });
-
-        imgv_bagel.setOnClickListener(v -> {
-            imgv_main.setVisibility(View.VISIBLE);
-            imgv_main.setImageResource(R.drawable.bagel);
-        });
-
-        imgv_apple.setOnClickListener(v -> {
-            imgv_main.setVisibility(View.VISIBLE);
-            imgv_main.setImageResource(R.drawable.apple_green);
-        });
-
+        }
 
         btn_info1.setOnClickListener(v -> {
             Intent intent = new Intent(this, InfoActivity.class);
