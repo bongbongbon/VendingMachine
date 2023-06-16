@@ -36,7 +36,7 @@ public class StoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store);
         for (int i = 0; i < MenuVal.names.length; i++) {
-            menu.add(new MenuDTO(MenuVal.names[i], MenuVal.explains[i], MenuVal.types[i],MenuVal.amounts[i],MenuVal.prices[i],MenuVal.src[i]));
+            menu.add(new MenuDTO(MenuVal.names[i], MenuVal.explains[i], MenuVal.types[i],MenuVal.prices[i],MenuVal.amounts[i],MenuVal.src[i]));
         };
 
 
@@ -85,7 +85,7 @@ public class StoreActivity extends AppCompatActivity {
                 btn_buy.setVisibility(View.VISIBLE);
                 btn_buy.setOnClickListener(v1 -> {
                     if (usermoney >=menu.get(idx).getGoods_price()) {
-                        //usermoney-=menu.get(idx).getGoods_price();
+                        usermoney-=menu.get(idx).getGoods_price();
                         tv_usermoney.setText(usermoney+"원");
                     }else {
                         Toast.makeText(this, "현재 잔액이 부족합니다. 충전 후 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
@@ -117,10 +117,7 @@ public class StoreActivity extends AppCompatActivity {
 
         }
 
-        btn_info1.setOnClickListener(v -> {
-            Intent intent = new Intent(this, InfoActivity.class);
-            startActivity(intent);
-        });
+
 
 
 
