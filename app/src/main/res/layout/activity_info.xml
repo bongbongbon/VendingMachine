@@ -9,11 +9,59 @@
     android:orientation="vertical">
 
     <TextView
+        android:textStyle="bold"
         android:fontFamily="@font/gamefont"
         android:gravity="center"
         android:textSize="60dp"
         android:text="내정보"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_back1"
+            android:layout_margin="2dp"
+            android:textSize="20dp"
+            android:background="#00ff0000"
+            android:textColor="#49454F"
+            android:fontFamily="@font/gamefont"
+            android:layout_alignParentRight="true"
+            android:text="뒤로가기"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+
+    <TextView
+        android:layout_margin="20dp"
+        android:fontFamily="@font/gamefont"
+        android:textSize="30dp"
+        android:text="이름 :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_margin="20dp"
+        android:fontFamily="@font/gamefont"
+        android:textSize="30dp"
+        android:text="나이 :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_margin="20dp"
+        android:fontFamily="@font/gamefont"
+        android:textSize="30dp"
+        android:text="보유 잔액 :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <ImageView
+        android:src="@drawable/mario"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

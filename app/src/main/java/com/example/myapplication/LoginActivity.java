@@ -28,18 +28,27 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+
+        ArrayList<LoginDTO> userlist = new ArrayList<>();
+        userlist.add(new LoginDTO("admin","admin1234","관리자","500","999999999"));
+        userlist.add(new LoginDTO("kim","1234","김수봉","29","10"));
+
+
         // 로그인 화면
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (user_id.getText().toString().equals("admin") && user_pw.getText().toString().equals("admin1234")) {
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    intent.putExtra("idkey", user_id.getText().toString());
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(LoginActivity.this, "아이디 혹은 비밀번호가 틀립니다.", Toast.LENGTH_SHORT).show();
+                for (int i = 0; i < userlist.size(); i++) {
+                    if (user_id.getText().toString().equals(userlist.get(i).getId())  &&user_pw.getText().toString().equals(userlist.get(i).getPw()))  {
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        intent.putExtra("idkey", user_id.getText().toString());
+                        startActivity(intent);
+                        break;
+                    }else{
+                        Toast.makeText(LoginActivity.this, "아이디 혹은 비밀번호가 틀립니다.", Toast.LENGTH_SHORT).show();
                 };
+                }
+
             }
         });
 

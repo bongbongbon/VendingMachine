@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.opengl.Visibility;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 
 public class StoreActivity extends AppCompatActivity {
     private ImageView imgv_banana, imgv_plum, imgv_abocado, imgv_tomato,imgv_bagel, imgv_apple, imgv_main;
-    private Button btn_charge;
+    private Button btn_charge, btn_info1;
 
     private TextView tv_usermoney ;
 
@@ -43,7 +44,7 @@ public class StoreActivity extends AppCompatActivity {
 
 
         btn_charge = findViewById(R.id.btn_charge);
-
+        btn_info1 = findViewById(R.id.btn_info1);
 
 
 
@@ -88,6 +89,10 @@ public class StoreActivity extends AppCompatActivity {
         });
 
 
+        btn_info1.setOnClickListener(v -> {
+            Intent intent = new Intent(this, InfoActivity.class);
+            startActivity(intent);
+        });
 
 
 
