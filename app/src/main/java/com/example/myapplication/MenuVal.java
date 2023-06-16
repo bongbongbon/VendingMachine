@@ -14,7 +14,7 @@ public class MenuVal {
                 "노란 파프리카","맛있는 블루베리","맛있는 갈색 식빵","맛있는 식빵","과거부터 현재까지 전 국민.. 아니 전 세계의 식욕을 불러일으켰던 마의 음식이다. 현재 합법적으로 섭취할 수 있는 유일한 마약이다."
         };
         public static String[]types={
-                "견과류","과일","과일","과일","채소","과일","육류","제과류","제과류","과일","채소","채소","채소","과일","제과류","음식"
+                "견과류","과일","과일","과일","채소","과일","육류","제과류","제과류","과일","채소","채소","채소","과일","제과류","제과류","음식"
         };
         public static int[]prices={
                 500,1500,1500,1500,200,
@@ -28,14 +28,26 @@ public class MenuVal {
                 130,130,130,50,30,
                 30,100
         };
-    public static String[]src={
-            "@drawable/almonds","@drawable/apple_green","@drawable/apple_red","@drawable/apple_yellow"
-            ,"@drawable/asparagus","@drawable/avocado_half","@drawable/bacon","@drawable/bagel"
-            ,"@drawable/baguette","@drawable/banana","@drawable/bell_pepper_red","@drawable/bell_pepper_green"
-            ,"@drawable/bell_pepper_yellow","@drawable/blueberries","@drawable/bread_loaf_brown","@drawable/bread_loaf_white"
-            ,"@drawable/chicken_drumstick_raw"
-    };
+    public static int[]src={
 
+            R.drawable.almonds,
+            R.drawable.apple_green,
+            R.drawable.apple_red,
+            R.drawable.apple_yellow,
+            R.drawable.asparagus,
+            R.drawable.avocado_half,
+            R.drawable.bacon,
+            R.drawable.bagel,
+            R.drawable.baguette,
+            R.drawable.banana,
+            R.drawable.bell_pepper_red,
+            R.drawable.bell_pepper_green,
+            R.drawable.bell_pepper_yellow,
+            R.drawable.blueberries,
+            R.drawable.bread_loaf_brown,
+            R.drawable.bread_loaf_white,
+            R.drawable.chicken_drumstick_raw
+    };
 
 
 //    public void baseList(){

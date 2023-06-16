@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (user_id.getText().toString().equals("admin") && user_pw.getText().toString().equals("admin1234")) {
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, StoreActivity.class);
                     intent.putExtra("idkey", user_id.getText().toString());
                     startActivity(intent);
                 } else {
