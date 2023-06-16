@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class LoginActivity extends AppCompatActivity {
 
     EditText user_id, user_pw;
@@ -38,11 +40,14 @@ public class LoginActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this,InfoActivity.class);
+                intent.putExtra("userid",userlist.get(0).getId());
                 for (int i = 0; i < userlist.size(); i++) {
                     if (user_id.getText().toString().equals(userlist.get(i).getId())  &&user_pw.getText().toString().equals(userlist.get(i).getPw()))  {
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         intent.putExtra("idkey", user_id.getText().toString());
                         startActivity(intent);
+
                         break;
                     }else{
                         Toast.makeText(LoginActivity.this, "아이디 혹은 비밀번호가 틀립니다.", Toast.LENGTH_SHORT).show();

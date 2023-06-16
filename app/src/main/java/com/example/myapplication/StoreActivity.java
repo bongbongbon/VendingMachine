@@ -29,7 +29,7 @@ public class StoreActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store);
-        for (int i = 0; i < MenuVal.names.length; i++) {
+        for (int i = 0; i < MenuVal.names.length-1; i++) {
             menu.add(new MenuDTO(MenuVal.names[i], MenuVal.explains[i], MenuVal.types[i],MenuVal.amounts[i],MenuVal.prices[i],MenuVal.src[i]));
         }
 
