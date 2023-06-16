@@ -2,8 +2,9 @@ package com.example.myapplication;
 
 import android.widget.Toast;
 
+
 public class MenuDTO {
-    private String goods_name,goods_explain,goods_type;
+    private String goods_name,goods_explain,goods_type,goods_src;
     private int goods_price,goods_amount;
 
     public MenuDTO(String goods_name, String goods_explain, String goods_type, int goods_price, int goods_amount,String goods_src) {
@@ -12,6 +13,7 @@ public class MenuDTO {
         this.goods_type = goods_type;
         this.goods_amount = goods_amount;
         this.goods_price = goods_price;
+        this.goods_src = goods_src;
     }
 
     public String getGoods_name() {
@@ -38,12 +40,12 @@ public class MenuDTO {
         this.goods_type = goods_type;
     }
 
-    public int getGoods_amount() {
-        return goods_amount;
+    public String getGoods_src() {
+        return goods_src;
     }
 
-    public void setGoods_amount(int goods_amount) {
-        this.goods_amount = goods_amount;
+    public void setGoods_src(String goods_src) {
+        this.goods_src = goods_src;
     }
 
     public int getGoods_price() {
@@ -53,12 +55,12 @@ public class MenuDTO {
     public void setGoods_price(int goods_price) {
         this.goods_price = goods_price;
     }
-    public boolean sellGoods(int amount) {
-        if (goods_amount >= amount) {
-            goods_amount -= amount;
-            return true;
-        } else {
-            return false;
-        }
+
+    public int getGoods_amount() {
+        return goods_amount;
+    }
+
+    public void setGoods_amount(int goods_amount) {
+        this.goods_amount = goods_amount;
     }
 }
