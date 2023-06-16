@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-
+        // 로그인 화면
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,6 +39,8 @@ public class LoginActivity extends AppCompatActivity {
                 if (user_id.getText().toString().equals("admin") && user_pw.getText().toString().equals("admin1234")) {
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.putExtra("idkey", user_id.getText().toString());
+                    MenuList menuList= new MenuList();
+                    menuList.baseList();
                     startActivity(intent);
                 } else {
                     Toast.makeText(LoginActivity.this, "아이디 혹은 비밀번호가 틀립니다.", Toast.LENGTH_SHORT).show();
@@ -47,23 +49,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
-
-       /* btn_join_member.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, MembershipActivity.class);
-                startActivity(intent);
-            }
-        });*/
-
-
-        btn_find_id_pw.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, FindCustomerActivity.class);
-                startActivity(intent);
-            }
-        });
 
     }
 
