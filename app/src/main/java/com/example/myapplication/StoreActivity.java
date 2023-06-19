@@ -22,13 +22,14 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 
 public class StoreActivity extends AppCompatActivity {
-    private Button btn_charge,btn_buy;
+    private Button btn_charge,btn_buy,btn_back,btn_info1;
     private ImageView imgv_main;
     private TextView tv_usermoney,tv_name ,tv_price,tv_explain,tv_type ;
 
     private EditText edt_chargemoney;
 
-    int usermoney=0, money;
+    static int usermoney=0;
+    int money;
 
     ArrayList<MenuDTO> menu = new ArrayList<>();
     @Override
@@ -42,6 +43,8 @@ public class StoreActivity extends AppCompatActivity {
 
         btn_charge = findViewById(R.id.btn_charge);
         btn_buy= findViewById(R.id.btn_buy);
+        btn_back=findViewById(R.id.btn_back);
+        btn_info1=findViewById(R.id.btn_info1);
         edt_chargemoney =findViewById(R.id.edt_chargeMoney);
         tv_usermoney = findViewById(R.id.tv_userMoney);
         imgv_main=findViewById(R.id.imgv_main);
@@ -52,6 +55,17 @@ public class StoreActivity extends AppCompatActivity {
 
         btn_buy.setVisibility(View.GONE);
         tv_usermoney.setText(usermoney+"원");
+
+        btn_info1.setOnClickListener(v -> {
+            Intent intent = new Intent(this,InfoActivity.class );
+            startActivity(intent);
+        });
+
+        btn_back.setOnClickListener(v -> {
+            Intent intent = new Intent(StoreActivity.this, MainActivity.class);
+            startActivity(intent);
+        });
+
         btn_charge.setOnClickListener(v -> {
             try {
                 money = Integer.parseInt(edt_chargemoney.getText().toString());
