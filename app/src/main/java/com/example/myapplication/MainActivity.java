@@ -21,9 +21,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Intent intent = getIntent();
-        String id = intent.getStringExtra("idkey");
-        String name = intent.getStringExtra("username");
-        String age  = intent.getStringExtra("userage");
+        LoginDTO dto = (LoginDTO) intent.getSerializableExtra("dto");
+//        String id = intent.getStringExtra("userid");
+//        String name = intent.getStringExtra("username");
+//        String age  = intent.getStringExtra("userage");
+//        int money = intent.getIntExtra("usermoney",1);
 
 
 
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         btn_store.setOnClickListener(v -> {
             Intent intent1 = new Intent(this, StoreActivity.class );
+            intent1.putExtra("dto",dto);
             startActivity(intent1);
             
 
@@ -41,9 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         btn_info.setOnClickListener(v -> {
             Intent intent2 = new Intent(this, InfoActivity.class );
-            intent2.putExtra("userid",id);
-            intent2.putExtra("username",name);
-            intent2.putExtra("userage",age);
+            intent2.putExtra("dto",dto);
             startActivity(intent2);
         });
 

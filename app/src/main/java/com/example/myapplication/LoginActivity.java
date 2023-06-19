@@ -12,7 +12,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
-
+    public static LoginDTO dto = null;
     EditText user_id, user_pw;
     Button btn_login, btn_join_member, btn_find_id_pw;
 
@@ -32,8 +32,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
         ArrayList<LoginDTO> userlist = new ArrayList<>();
-        userlist.add(new LoginDTO("admin","admin1234","관리자","500","999999999"));
-        userlist.add(new LoginDTO("kim","1234","김수봉","29","10"));
+        userlist.add(new LoginDTO("admin","admin1234","관리자","500",500));
+        userlist.add(new LoginDTO("kim","1234","김수봉","29",500));
 
 
         // 로그인 화면
@@ -43,9 +43,8 @@ public class LoginActivity extends AppCompatActivity {
                 for (int i = 0; i < userlist.size(); i++) {
                     if (user_id.getText().toString().equals(userlist.get(i).getId())  &&user_pw.getText().toString().equals(userlist.get(i).getPw()))  {
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        intent.putExtra("idkey", user_id.getText().toString());
-                        intent.putExtra("username",userlist.get(i).getName());
-                        intent.putExtra("userage",userlist.get(i).getAge());
+                        dto = userlist.get(i);
+                        intent.putExtra("dto", userlist.get(i));
                         startActivity(intent);
 
                         break;

@@ -20,10 +20,7 @@ public class InfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
         Intent intent = getIntent();
-        String id = intent.getStringExtra("userid");
-        String name = intent.getStringExtra("username");
-        String age = intent.getStringExtra("userage");
-
+        LoginDTO dto = (LoginDTO) intent.getSerializableExtra("dto");
 
         btn_back1 = findViewById(R.id.btn_back1);
 
@@ -33,9 +30,10 @@ public class InfoActivity extends AppCompatActivity {
         txt_money = findViewById(R.id.txt_money);
 
 
-        txt_id.setText(id);
-        txt_name.setText(name);
-        txt_age.setText(age);
+        txt_id.setText(dto.getId());
+        txt_name.setText(dto.getName());
+        txt_age.setText(dto.getAge());
+        txt_money.setText(LoginActivity.dto.getMoney()+"원");
 
 
 
@@ -43,6 +41,7 @@ public class InfoActivity extends AppCompatActivity {
 
         btn_back1.setOnClickListener(v -> {
             Intent intent1 = new Intent(this, MainActivity.class);
+            intent1.putExtra("dto",dto);
             startActivity(intent1);
         });
 

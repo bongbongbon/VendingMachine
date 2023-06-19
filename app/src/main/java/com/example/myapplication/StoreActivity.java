@@ -28,26 +28,23 @@ public class StoreActivity extends AppCompatActivity {
 
     private EditText edt_chargemoney;
 
-    static int usermoney=0;
     int money;
+    static int usermoney;
 
     ArrayList<MenuDTO> menu = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store);
+        LoginDTO dto = LoginActivity.dto;
+
+
+
+
         for (int i = 0; i < MenuVal.names.length-1; i++) {
             menu.add(new MenuDTO(MenuVal.names[i], MenuVal.explains[i], MenuVal.types[i],MenuVal.amounts[i],MenuVal.prices[i],MenuVal.src[i]));
         }
 
-
-        imgv_apple = findViewById(R.id.imgv_apple_green);
-        imgv_bagel = findViewById(R.id.imgv_bagel);
-        imgv_tomato = findViewById(R.id.imgv_tomato);
-        imgv_abocado = findViewById(R.id.imgv_avocado_half);
-        imgv_plum = findViewById(R.id.imgv_plum);
-        imgv_banana = findViewById(R.id.imgv_banana);
-        imgv_main = findViewById(R.id.imgv_main);
 
 
         btn_charge = findViewById(R.id.btn_charge);
@@ -67,18 +64,30 @@ public class StoreActivity extends AppCompatActivity {
 
         btn_info1.setOnClickListener(v -> {
             Intent intent = new Intent(this,InfoActivity.class );
+            intent.putExtra("dto",dto);
             startActivity(intent);
         });
 
         btn_back.setOnClickListener(v -> {
             Intent intent = new Intent(StoreActivity.this, MainActivity.class);
+            /*intent.putExtra("userid",id);
+            intent.putExtra("username",name);
+            intent.putExtra("userage",age);
+            intent.putExtra("usermoney",money);*/
+            intent.putExtra("dto",dto);
             startActivity(intent);
         });
 
         btn_charge.setOnClickListener(v -> {
             try {
                 money = Integer.parseInt(edt_chargemoney.getText().toString());
-                usermoney += money;
+                if(money<0) {
+                    Toast.makeText(this, "다시 시도해주세요.", Toast.LENGTH_SHORT).show();
+                } else {
+                    usermoney += money;
+                    LoginActivity.dto.setMoney(usermoney);
+                }
+
 
             }catch (NumberFormatException e){
 
@@ -107,9 +116,11 @@ public class StoreActivity extends AppCompatActivity {
 
                 btn_buy.setVisibility(View.VISIBLE);
                 btn_buy.setOnClickListener(v1 -> {
-                    if (usermoney >=menu.get(idx).getGoods_price()) {
+
+                     if (usermoney >=menu.get(idx).getGoods_price()) {
                         usermoney-=menu.get(idx).getGoods_price();
                         tv_usermoney.setText(usermoney+"원");
+                        LoginActivity.dto.setMoney(usermoney);
                     }else {
                         Toast.makeText(this, "현재 잔액이 부족합니다. 충전 후 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
                     }

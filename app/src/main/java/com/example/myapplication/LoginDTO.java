@@ -1,9 +1,12 @@
 package com.example.myapplication;
 
-public class LoginDTO {
-    private String id, pw, name, age, money;
+import java.io.Serializable;
 
-    public LoginDTO(String id, String pw, String name, String age, String money ) {
+public class LoginDTO implements Serializable {
+    private String id, pw, name, age;
+    private int money;
+
+    public LoginDTO(String id, String pw, String name, String age, int money) {
         this.id = id;
         this.pw = pw;
         this.name = name;
@@ -43,11 +46,12 @@ public class LoginDTO {
         this.age = age;
     }
 
-    public String getMoney() {
+    public int getMoney() {
         return money;
     }
 
-    public void setMoney(String money) {
+    public void setMoney(int money) {
         this.money = money;
     }
 }
+
