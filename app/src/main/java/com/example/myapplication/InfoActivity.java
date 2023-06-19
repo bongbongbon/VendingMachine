@@ -21,6 +21,8 @@ public class InfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_info);
         Intent intent = getIntent();
         String id = intent.getStringExtra("userid");
+        String name = intent.getStringExtra("username");
+        String age = intent.getStringExtra("userage");
 
 
         btn_back1 = findViewById(R.id.btn_back1);
@@ -31,7 +33,9 @@ public class InfoActivity extends AppCompatActivity {
         txt_money = findViewById(R.id.txt_money);
 
 
-        Log.d("ㅎㅇ", "onCreate: "+ id);
+        txt_id.setText(id);
+        txt_name.setText(name);
+        txt_age.setText(age);
 
 
 

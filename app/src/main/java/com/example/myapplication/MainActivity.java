@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Intent intent = getIntent();
         String id = intent.getStringExtra("idkey");
+        String name = intent.getStringExtra("username");
+        String age  = intent.getStringExtra("userage");
 
 
 
@@ -29,15 +31,19 @@ public class MainActivity extends AppCompatActivity {
         btn_info = findViewById(R.id.btn_info);
 
 
-        Log.d("ㅎㅇ", "onCreate: "+id);
 
         btn_store.setOnClickListener(v -> {
             Intent intent1 = new Intent(this, StoreActivity.class );
             startActivity(intent1);
+            
+
         });
 
         btn_info.setOnClickListener(v -> {
             Intent intent2 = new Intent(this, InfoActivity.class );
+            intent2.putExtra("userid",id);
+            intent2.putExtra("username",name);
+            intent2.putExtra("userage",age);
             startActivity(intent2);
         });
 
