@@ -4,29 +4,47 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     Button btn_store, btn_info;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent intent = getIntent();
+        String id = intent.getStringExtra("idkey");
+        String name = intent.getStringExtra("username");
+        String age  = intent.getStringExtra("userage");
+
+
 
         btn_store = findViewById(R.id.btn_store);
         btn_info = findViewById(R.id.btn_info);
 
+
+
         btn_store.setOnClickListener(v -> {
-            Intent intent = new Intent(this,StoreActivity.class  );
-            startActivity(intent);
+            Intent intent1 = new Intent(this, StoreActivity.class );
+            startActivity(intent1);
+            
+
         });
 
         btn_info.setOnClickListener(v -> {
-            Intent intent = new Intent(this,InfoActivity.class );
-            startActivity(intent);
+            Intent intent2 = new Intent(this, InfoActivity.class );
+            intent2.putExtra("userid",id);
+            intent2.putExtra("username",name);
+            intent2.putExtra("userage",age);
+            startActivity(intent2);
         });
 
 

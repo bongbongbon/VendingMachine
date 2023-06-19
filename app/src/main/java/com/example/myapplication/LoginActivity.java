@@ -44,7 +44,10 @@ public class LoginActivity extends AppCompatActivity {
                     if (user_id.getText().toString().equals(userlist.get(i).getId())  &&user_pw.getText().toString().equals(userlist.get(i).getPw()))  {
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         intent.putExtra("idkey", user_id.getText().toString());
+                        intent.putExtra("username",userlist.get(i).getName());
+                        intent.putExtra("userage",userlist.get(i).getAge());
                         startActivity(intent);
+
                         break;
                     }else{
                         Toast.makeText(LoginActivity.this, "아이디 혹은 비밀번호가 틀립니다.", Toast.LENGTH_SHORT).show();

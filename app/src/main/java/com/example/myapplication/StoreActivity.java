@@ -36,9 +36,18 @@ public class StoreActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store);
-        for (int i = 0; i < MenuVal.names.length; i++) {
-            menu.add(new MenuDTO(MenuVal.names[i], MenuVal.explains[i], MenuVal.types[i],MenuVal.prices[i],MenuVal.amounts[i],MenuVal.src[i]));
-        };
+        for (int i = 0; i < MenuVal.names.length-1; i++) {
+            menu.add(new MenuDTO(MenuVal.names[i], MenuVal.explains[i], MenuVal.types[i],MenuVal.amounts[i],MenuVal.prices[i],MenuVal.src[i]));
+        }
+
+
+        imgv_apple = findViewById(R.id.imgv_apple_green);
+        imgv_bagel = findViewById(R.id.imgv_bagel);
+        imgv_tomato = findViewById(R.id.imgv_tomato);
+        imgv_abocado = findViewById(R.id.imgv_avocado_half);
+        imgv_plum = findViewById(R.id.imgv_plum);
+        imgv_banana = findViewById(R.id.imgv_banana);
+        imgv_main = findViewById(R.id.imgv_main);
 
 
         btn_charge = findViewById(R.id.btn_charge);
