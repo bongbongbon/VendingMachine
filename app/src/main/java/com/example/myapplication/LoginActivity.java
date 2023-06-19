@@ -32,8 +32,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
         ArrayList<LoginDTO> userlist = new ArrayList<>();
-        userlist.add(new LoginDTO("admin","admin1234","관리자","500",500));
-        userlist.add(new LoginDTO("kim","1234","김수봉","29",500));
+        userlist.add(new LoginDTO("admin","admin1234","관리자","500",0));
+        userlist.add(new LoginDTO("kim","1234","김수봉","29",0));
 
 
         // 로그인 화면
